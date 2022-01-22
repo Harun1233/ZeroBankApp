@@ -12,9 +12,15 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class Driver {
+
+    static DesiredCapabilities c=DesiredCapabilities.chrome();
+
+
 
     private Driver() {}
 
@@ -25,8 +31,9 @@ public class Driver {
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
+                    c.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driver = new ChromeDriver(c);
                     break;
                 case "chrome-headless":
                     WebDriverManager.chromedriver().setup();

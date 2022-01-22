@@ -32,7 +32,7 @@ public class TestBase {
     @AfterMethod
     public void tearsDown() throws InterruptedException {
 
-        Thread.sleep(2000);
+        Thread.sleep(10000);
         Driver.closeDriver();
     }
 }

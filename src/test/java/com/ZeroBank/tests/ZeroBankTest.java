@@ -19,4 +19,10 @@ public class ZeroBankTest extends TestBase{
         Assert.assertEquals(actualWarningMessage,expectedWarningMessage,"Verify that the warning messages match");
 
     }
+
+    @Test
+    public void positiveTest(){
+        homePage.signIn();
+        sigIn.fillAndSignPositive();
+    }
 }

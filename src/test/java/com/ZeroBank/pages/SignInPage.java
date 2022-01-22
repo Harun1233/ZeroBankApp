@@ -1,9 +1,14 @@
 package com.ZeroBank.pages;
 
+import com.ZeroBank.tests.utilities.BrowserUtils;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class SignInPage extends BasePage{
+
+
+
     @FindBy(css = "#user_login")
     public WebElement userNameInput;
     @FindBy(css = "#user_password")
@@ -15,13 +20,18 @@ public class SignInPage extends BasePage{
 
 
 
+    public void fillAndSign(){
 
+
+    }
 
 
 
 
     @Override
     public String getElementText() {
-        return null;
+        BrowserUtils.waitForVisibility(warningMessage,10);
+        return warningMessage.getText();
+
     }
 }

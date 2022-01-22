@@ -30,12 +30,13 @@ public class SignInPage extends BasePage{
 
     }
 
-    public void fillAndSignNegative(){
+    public String fillAndSignNegative(){
 
-        userNameInput.sendKeys(ConfigurationReader.get("username"));
-        passwordInput.sendKeys(ConfigurationReader.get("password"));
+        userNameInput.sendKeys(ConfigurationReader.get("wronguser"));
+        passwordInput.sendKeys(ConfigurationReader.get("wrongpassword"));
         signInButton.click();
 
+       return getElementText();
 
     }
 
